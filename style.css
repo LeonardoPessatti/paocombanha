@@ -1,0 +1,205 @@
+/**
+ * Código criado e pertencente exclusivamente a Leonardo Pessatti.
+ * www.facebook.com/leopessatti
+ * Created on : 29/03/2017, 20:48:08
+ * Author: Leonardo Pessatti <lpessatti@gmail.com>
+ */
+
+/*Estilo geral*/
+html{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #f5f5f5;
+    font-family: 'Source Sans Pro';
+    font-weight: 300;
+    color: #777;
+    clear:both;
+    /*background-size: cover;*/ 
+    background-size: auto; 
+    background-repeat: repeat;
+    background-position: center bottom;
+    background-position: center 95%;
+    background-attachment: fixed;
+    background-image:url("img/wp1.jpg"); 
+}
+
+/*Estilo links*/
+a:hover{
+    color: yellowgreen;
+    -webkit-transition: 0.5s;
+}
+a{
+    width: auto;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    color:orange;
+}
+
+#content a{
+    color:black;
+}
+
+/*Estilo área central*/
+#content{
+    /*padding-left:25%;*/
+    font-size: 1.2em;
+    /*    width: 40%;
+        margin-left: 30%;*/
+}
+
+/*Estilo Banner*/
+#banner{
+    color:wheat;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    padding-top: 2%;
+    padding-bottom: 10%;
+    overflow:hidden;
+    text-shadow: #000 2px 3px 2px;
+    text-align: center;
+    background-color:rgba(0,0,0,0.8);
+    background-image:url("img/banner.jpg");
+    height: 100%;
+    
+}
+
+#banner h1 a{
+    font-size: 1.5em;
+    color: wheat;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    line-height: 110%;
+}
+
+#banner h3, h1{
+    padding: 0;
+    margin: 0;
+}
+
+#banner .bannercontent{
+    background-color:rgba(0,5,0,0.4);
+    height: 10%; 
+}
+
+/*Alterações no estilo dos cards, as miniaturas dos posts na página principal*/
+.card-image{
+    padding-top: 2%;
+}
+
+.card-content{
+    padding: 0;
+    margin: 0;
+    line-height: 1em;
+}
+
+/*Estilo da área de paginação*/
+#paginacao{
+    background-color:rgba(1000,1000,1000,0.2);
+    height:5em;
+    overflow: hidden;
+    margin-bottom: 5%;
+    padding-bottom: 5%;
+    vertical-align: middle;
+    display: block;
+    text-shadow: #000 1px 2px 1px;
+}
+
+#paginacao h4{
+    padding-top: 20%;
+    margin: 0;
+    font-size: 3em;
+}
+
+/*#paginacao table{
+    width: 40%;
+    margin-left: 30%;
+}*/
+
+#righttd{
+    /*text-align: right;*/
+}
+
+#lefttd{
+    text-align:left;
+    /*width: 20em;*/
+}
+
+#centertd{
+    text-align: center;
+}
+
+.pagination li.active{
+    /*color:yellowgreen;*/
+    background-color: orange;
+    border-radius: 30%;
+}
+
+.row{
+    display: block;
+}
+
+article header img{
+    max-height: 60%;
+    overflow: hidden;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    width: 100%;
+}
+
+article{
+    height: auto;
+    background-color: white;
+    border-radius: 2px 2px 0 0;
+    overflow: hidden;
+    font-family: arial;
+    padding: 2%;
+}
+
+article p{
+    text-indent:4em;
+}
+
+div#social {
+float:right;
+padding: 0 ;
+margin: 0;
+    
+}
+div#social img {
+margin-left:1px;
+}
+
+
+@media screen and (max-width: 600px) and (min-width: 300px) {
+    #banner {
+        font-size: 3.4em;
+        padding: 0;
+        margin: 0;
+    }
+
+    #banner h1 a{
+        font-size: 1.2em;
+        line-height: 110%;
+    }
+
+    #banner h3{
+        padding: 0;
+        margin: 0;
+        font-size: 0.5em;
+    }
+
+    #paginacao table h4{
+        font-size: 1.4em;
+        vertical-align: middle;
+        display: table-cell;
+    }
+}

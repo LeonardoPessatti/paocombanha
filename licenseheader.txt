@@ -1,0 +1,8 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Código criado e pertencente exclusivamente a Leonardo Pessatti.
+${licensePrefix}www.facebook.com/leopessatti
+<#if licenseLast??>
+${licenseLast}
+</#if>
