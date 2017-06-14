@@ -20,6 +20,7 @@ mysqli_set_charset($link, "utf8");
         <article>
             <header>
                 <h1><a href="#"><?php echo $linha[titulo]; ?></a></h1>
+                <p>Postado por <?php echo $linha[autor_id]; ?></p>
                 <img src="img/placeholder.jpg" alt="" /></a>
                 <h5><?php echo $linha[descricao]; ?></h5>
             </header>

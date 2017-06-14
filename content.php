@@ -33,12 +33,13 @@ $posts = mysqli_query($link, $conPosts);
         $src = 'data: image/png;charset=utf-8;base64, "' . $linha[preview] . '"';
         ?>
         <div class="row">
-            <div class="card large col s10 m8 l6 offset-l3 offset-s1 offset-m2" style="height: 33em">
+            <div class="card large col s10 m8 l6 offset-l3 offset-s1 offset-m2" style="height: 35em; padding-bottom: 1.5em">
                 <div class="card-image">
                     <img src="data: image/jpg;charset=utf-8;base64, <?php echo $linha[preview]; ?>" alt=\"\" />
                     <span class="card-title" style="text-shadow: 2px 2px 2px white;"><a href="index.php?post=<?php echo $linha[id] ?> "><h2><?php echo $linha[titulo]; ?></h2></a></span>
                 </div>
                 <div class="card-content" style="margin-bottom: -30%;" >
+                    <h5 style="margin-top: 0"><?php echo $linha[descricao]; ?></h5>
                     <p><?php echo $text; ?></p>
                 </div>
                 <div class="card-action" style="padding: 0.5% 0 0.5% 0">
