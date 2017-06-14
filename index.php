@@ -7,8 +7,8 @@ Created on : 29/03/2017, 20:48:08
 Author     : Leonardo Pessatti <lpessatti@gmail.com>
 -->
 <?php
-    include 'lib.php';
-    include 'server.php';
+include 'lib.php';
+include 'server.php';
 ?>
 <html>
     <head>
@@ -20,11 +20,11 @@ Author     : Leonardo Pessatti <lpessatti@gmail.com>
         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
         <!--<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
         <script type="text/javascript" src="materialize/js/materialize.min.js"></script>-->
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-  
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
@@ -36,13 +36,14 @@ Author     : Leonardo Pessatti <lpessatti@gmail.com>
         </div>
         <?php
         error_reporting(E_ALL ^ E_NOTICE);
-        $post= $_GET['post'];
+        $post = $_GET['post'];
         $tag = $_GET['tag'];
-        if($post){
+        $autor = $_GET['autor'];
+        if ($post) {
             include 'post.php';
-        }elseif($tag){
+        } elseif ($tag or $autor) {
             include 'pesquisa.php';
-        }else{
+        } else {
             include 'content.php';
             include 'paginacao.php';
         }

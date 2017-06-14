@@ -5,10 +5,10 @@
  * www.facebook.com/leopessatti
  */
 
+if($tag){
 $conPosts = 
 'select 
 DISTINCT id,
-autor_id,
 titulo,
 preview,
 descricao,
@@ -18,8 +18,28 @@ id_post,
 id_tag,
 nome 
 from vw_posts a join vw_tags b on a.id=b.id_post 
-where b.nome=\''.$tag.'\'';
+where b.nome=\''.$tag.'\'
+order by id desc';
+}
 
+elseif($autor){
+$conPosts = 
+'select 
+DISTINCT id,
+titulo,
+preview,
+descricao,
+conteudo,
+data,
+autor_id, 
+nome, 
+descricao_autor, 
+cor
+from vw_posts a
+where autor_id=\''.$autor.'\'
+order by id desc';
+}
+echo $conPosts;
 $posts = mysqli_query($link, $conPosts);
 ?>    
 

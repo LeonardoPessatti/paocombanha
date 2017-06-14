@@ -8,7 +8,7 @@
 include 'server.php';
 
 echo $post;
-$con = 'SELECT * FROM `posts` WHERE id= ' . $post;
+$con = 'SELECT * FROM `VW_POSTS` WHERE id= ' . $post;
 $query = mysqli_query($link, $con);
 $linha = mysqli_fetch_array($query);
 mysqli_set_charset($link, "utf8");
@@ -20,7 +20,7 @@ mysqli_set_charset($link, "utf8");
         <article>
             <header>
                 <h1><a href="#"><?php echo $linha[titulo]; ?></a></h1>
-                <p>Postado por <?php echo $linha[autor_id]; ?></p>
+                <p>Postado por <?php echo $linha[nome]; ?> ás <?php echo date( 'H:i:s',strtotime($linha[data])); ?> do dia <?php echo date( 'd-m-y',strtotime($linha[data])); ?></p>
                 <img src="img/placeholder.jpg" alt="" /></a>
                 <h5><?php echo $linha[descricao]; ?></h5>
             </header>
@@ -41,6 +41,21 @@ mysqli_set_charset($link, "utf8");
                         }
                     }
                     ?>
+                        
+                        <div class="row">
+
+          <div class="card blue-grey darken-1">
+              <div class="card-content white-text" style="background-color: <?php echo $linha[cor]; ?>">
+              <span class="card-title"><a href="index.php?autor=<?php echo $linha[autor_id]; ?>"><?php echo $linha[nome]; ?></a></span>
+              <p><?php echo $linha[descricao_autor]; ?></p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+
+      </div>
             </ul>
         </article>
     </div>
