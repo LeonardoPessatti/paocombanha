@@ -1,7 +1,7 @@
 <?php
 /**
  * CODIFICAÇÃO BASE 64
- */
+ *
 
 
 $str = 'VGhpcyBpcyBhbiBlbmNvZGVkIHN0cmluZw==';
@@ -21,11 +21,11 @@ echo "<img src=\"$src\" alt=\"\" />";
 /**
  * INCLUDE POST
  */
-/*
+
 $autor = 0;
 include 'server.php';
 mysqli_set_charset($link, "utf8");
-for ($i = 5; $i <= 17; $i++) {
+for ($i = 17; $i <= 30; $i++) {
 
     ++$autor;
     if ($autor == 6) {
@@ -54,8 +54,7 @@ for ($i = 5; $i <= 17; $i++) {
         echo "Não foi possível inserir a notícia, tente novamente.<br>Dados sobre o erro:" . mysql_error($query);
     }
 }
- * 
- */
+
 
 /**
  * 
@@ -65,7 +64,7 @@ for ($i = 5; $i <= 17; $i++) {
 include 'server.php';
 mysqli_set_charset($link, "utf8");
 
-for ($i = 5; $i <= 17; $i++) {
+for ($i = 17; $i <= 30; $i++) {
     $con = 'UPDATE `posts` SET `descricao` = \'Descrição do Teste '. $i .' \', `conteudo` = \'Todos as descrições das pessoas são sobre a humanidade do atendimento, a pessoa pega no 
         pulso, examina, olha com carinho. Então eu acho que vai ter outra coisa, que os médicos cubanos trouxeram pro brasil, um alto grau de humanidade. 
 

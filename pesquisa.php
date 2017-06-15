@@ -39,7 +39,7 @@ from vw_posts a
 where autor_id=\''.$autor.'\'
 order by id desc';
 }
-echo $conPosts;
+
 $posts = mysqli_query($link, $conPosts);
 ?>    
 
