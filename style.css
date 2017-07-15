@@ -42,6 +42,12 @@ a{
 #content a{
     color:black;
 }
+/* left */
+#lefttd{
+    top: -30%;
+    position: absolute;
+    
+}
 
 /*Estilo área central*/
 #content{
