@@ -18,8 +18,43 @@ if (!$offset) {
 }
 $offseta = $offset * $limit;
 
-//sql
+if($tag){
+$conPosts = 
+'select 
+DISTINCT id,
+titulo,
+preview,
+descricao,
+conteudo,
+data,
+id_post,
+id_tag,
+a.nome 
+from vw_posts a join vw_tags b on a.id=b.id_post 
+where b.nome=\''.$tag.'\'
+order by id desc';
+}
+
+elseif($autor){
+$conPosts = 
+'select 
+DISTINCT id,
+titulo,
+preview,
+descricao,
+conteudo,
+data,
+autor_id, 
+a.nome, 
+descricao_autor, 
+cor
+from vw_posts a
+where autor_id=\''.$autor.'\'
+order by id desc
+LIMIT ' . $offseta . ',' . $limit;
+} else{
 $conPosts = 'select * from vw_posts LIMIT ' . $offseta . ',' . $limit;
+}
 $posts = mysqli_query($link, $conPosts);
 ?>    
 
@@ -47,6 +82,9 @@ $posts = mysqli_query($link, $conPosts);
                         <tr >
                             <td>
                                 <a href="index.php?post=<?php echo $linha[id] ?> ">Continue Lendo</a>
+                            </td>
+                            <td>
+                                <p style="padding: 0; margin: 0">Postado por <?php echo $linha[nome]; ?> ás <?php echo date( 'H:i:s',strtotime($linha[data])); ?> do dia <?php echo date( 'd-m-y',strtotime($linha[data])); ?></p>
                             </td>
                             <td>
                                 <div id="social">

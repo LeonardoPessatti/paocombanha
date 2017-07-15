@@ -31,7 +31,7 @@ include 'server.php';
         <div id="banner" class="row">
             <div class="col s10 m8 l6 offset-l3 offset-s1 offset-m2 bannercontent">
                 <h1><a href="index.php">Pão com Banha</a></h1>
-                <h3>Motherfucking Awesome</h3>
+                <h3>Motherfucking, Incredibly Awesome</h3>
             </div>
         </div>
         <?php
@@ -41,8 +41,6 @@ include 'server.php';
         $autor = $_GET['autor'];
         if ($post) {
             include 'post.php';
-        } elseif ($tag or $autor) {
-            include 'pesquisa.php';
         } else {
             include 'content.php';
             include 'paginacao.php';
