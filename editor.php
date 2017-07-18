@@ -133,6 +133,7 @@ $tags= $_POST['tags'];
 $conteudo= $_POST['editor-post'];
 
 echo $editor_data;
+echo $conteudo;
 
 $autor = 0;
 include 'server.php';
