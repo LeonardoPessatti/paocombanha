@@ -15,8 +15,8 @@ mysqli_set_charset($link, "utf8");
 
 // Inacabado
 ?>
-<div class="row">
-    <div class="col s10 m8 l6 offset-l3 offset-s1 offset-m2">
+
+    <div class="col s10 m8 l6 ">
         <article>
             <header>
                 <h1><a href="#"><?php echo $linha[titulo]; ?></a></h1>
@@ -59,4 +59,3 @@ mysqli_set_charset($link, "utf8");
             </ul>
         </article>
     </div>
-</div>

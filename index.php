@@ -39,14 +39,26 @@ include 'server.php';
         $post = $_GET['post'];
         $tag = $_GET['tag'];
         $autor = $_GET['autor'];
-        if ($post) {
-            include 'post.php';
-        } else {
-            include 'content.php';
-            include 'paginacao.php';
-        }
-        include 'left.php';
-        include 'right.php';
+        ?>
+        <div class="row">
+            <div class="col s10 m8 l3  ">
+                <?php include 'left.php'; ?>
+            </div>
+            <?php
+            if ($post) {
+                include 'post.php';
+            } else {
+            ?>
+                <div id="content" class="col s10 m8 l6">
+                    <?php include 'content.php'; ?>
+                </div>
+            <?php } ?>
+            <div class="col s10 m8 l3  ">
+                <?php include 'right.php'; ?>
+            </div>
+        </div>
+        <?php
+        include 'paginacao.php';
         include 'footer.php';
         ?>
     </body>
