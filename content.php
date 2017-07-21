@@ -64,25 +64,20 @@ $posts = mysqli_query($link, $conPosts);
     <?php
 //Montagem das miniaturas dos posts em si
     while ($linha = mysqli_fetch_array($posts)) {
-        $text = substr($linha[conteudo], 0, 800) . '...';
-        $src = 'data: image/png;charset=utf-8;base64, "' . $linha[preview] . '"';
         ?>
 
             <div class="card large" style="height: 35em; padding-bottom: 1.5em">
                 <div class="card-image">
-                    <img src="data: image/jpg;charset=utf-8;base64, <?php echo $linha[preview]; ?>" alt=\"\" />
+                    <img src=" <?php echo urldecode($linha[preview]); ?>" alt=\"\" />
                     <span class="card-title" style="text-shadow: 2px 2px 2px white;"><a href="index.php?post=<?php echo $linha[id] ?> "><h2><?php echo $linha[titulo]; ?></h2></a></span>
                 </div>
                 <div class="card-content" style="margin-bottom: -30%;" >
                     <h5 style="margin-top: 0"><?php echo $linha[descricao]; ?></h5>
-                    <p><?php echo $text; ?></p>
+                    <p><?php echo urldecode(substr($linha[conteudo], 0, 800) . '... <a href="index.php?post=<?php echo $linha[id] ?> ">Continue Lendo</a>'); ?></p>
                 </div>
                 <div class="card-action" style="padding: 0.5% 0 0.5% 0">
                     <table>
                         <tr >
-                            <td>
-                                <a href="index.php?post=<?php echo $linha[id] ?> ">Continue Lendo</a>
-                            </td>
                             <td>
                                 <p style="padding: 0; margin: 0">Postado por <?php echo $linha[nome]; ?> ás <?php echo date( 'H:i:s',strtotime($linha[data])); ?> do dia <?php echo date( 'd-m-y',strtotime($linha[data])); ?></p>
                             </td>

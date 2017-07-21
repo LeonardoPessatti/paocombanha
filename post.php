@@ -21,10 +21,10 @@ mysqli_set_charset($link, "utf8");
             <header>
                 <h1><a href="#"><?php echo $linha[titulo]; ?></a></h1>
                 <p>Postado por <?php echo $linha[nome]; ?> ás <?php echo date( 'H:i:s',strtotime($linha[data])); ?> do dia <?php echo date( 'd-m-y',strtotime($linha[data])); ?></p>
-                <img src="img/placeholder.jpg" alt="" /></a>
+                <img src="<?php echo urldecode($linha[preview]); ?>" alt="" /></a>
                 <h5><?php echo $linha[descricao]; ?></h5>
             </header>
-            <p><?php echo $linha[conteudo].'<br> AHOYYY MARUJOS,<br>'; ?> aaa</p>
+            <p><?php echo urldecode($linha[conteudo]).'<br> AHOYYY MARUJOS,<br>'; ?> aaa</p>
             <ul class="actions">
 
                 tags:
