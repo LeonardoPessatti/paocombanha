@@ -41,24 +41,26 @@ include 'server.php';
         $autor = $_GET['autor'];
         ?>
         <div class="row">
-            <div class="col s10 m8 l3  ">
+            <div class="col s0 m3 l3  ">
                 <?php include 'left.php'; ?>
             </div>
             <?php
             if ($post) {
                 include 'post.php';
             } else {
-            ?>
-                <div id="content" class="col s10 m8 l6">
-                    <?php include 'content.php'; ?>
+                ?>
+                <div id="content" class="col s12 m7 l7">
+                    <?php
+                    include 'content.php';
+                    include 'paginacao.php';
+                    ?>
                 </div>
             <?php } ?>
-            <div class="col s10 m8 l3  ">
+            <div class="col s0 m2 l2  ">
                 <?php include 'right.php'; ?>
             </div>
         </div>
         <?php
-        include 'paginacao.php';
         include 'footer.php';
         ?>
     </body>

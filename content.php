@@ -66,20 +66,21 @@ $posts = mysqli_query($link, $conPosts);
     while ($linha = mysqli_fetch_array($posts)) {
         ?>
 
-            <div class="card large" style="height: 35em; padding-bottom: 1.5em">
+            <div class="card large card-reveal card-panel" style="height: 37em; padding-bottom: 1.5em; max-height: auto;  background-color: rgb(539, 534, 513);    position: relative;">
                 <div class="card-image">
                     <img src=" <?php echo urldecode($linha[preview]); ?>" alt=\"\" />
                     <span class="card-title" style="text-shadow: 2px 2px 2px white;"><a href="index.php?post=<?php echo $linha[id] ?> "><h2><?php echo $linha[titulo]; ?></h2></a></span>
                 </div>
-                <div class="card-content" style="margin-bottom: -30%;" >
+                <div class="card-content icon-block"  style="margin-bottom: -30%;  max-height: none;  text-align: justify" >
                     <h5 style="margin-top: 0"><?php echo $linha[descricao]; ?></h5>
-                    <p><?php echo urldecode(substr($linha[conteudo], 0, 800) . '... <a href="index.php?post=<?php echo $linha[id] ?> ">Continue Lendo</a>'); ?></p>
+                    <p><?php echo substr(urldecode($linha[conteudo]), 0, 800) .' ... <a href="index.php?post='.$linha[id].'">Continue Lendo</a>'; ?></p>
+                    <p></p>
                 </div>
-                <div class="card-action" style="padding: 0.5% 0 0.5% 0">
+                <div class="card-action" style="padding: 0.5% 0 0.5% 0;">
                     <table>
                         <tr >
                             <td>
-                                <p style="padding: 0; margin: 0">Postado por <?php echo $linha[nome]; ?> ás <?php echo date( 'H:i:s',strtotime($linha[data])); ?> do dia <?php echo date( 'd-m-y',strtotime($linha[data])); ?></p>
+                                <p style="padding: 0; margin: 0">Postado por <?php echo $linha[nome]; ?><br> ás <?php echo date( 'H:i:s',strtotime($linha[data])); ?> do dia <?php echo date( 'd-m-y',strtotime($linha[data])); ?></p>
                             </td>
                             <td>
                                 <div id="social">
