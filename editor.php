@@ -141,44 +141,62 @@ echo 'CABEÇALHO: ' . base64_decode($cabecalho) . '<br><br>';
 echo 'CONTEUDO: ' . $conteudo . '<br><br>';
 echo 'CONSULTA: ' . $con . '<br><br>';
 $query = mysqli_query($link, $con);
-if ($query) {
+if ($query != null and $query != 0 and $query != '') {
+    echo $query;
     echo 'ID POST: ' . mysqli_insert_id($link) . '<br><br>';
     $lastPostId = mysqli_insert_id($link);
-    
+
     //Verifica se há tags.
     if (strlen($tags) > 0) {
         //Divide-as em um array.
         $tags = explode(';', $tags);
         //Verifica individualmente se já existem.
+        echo'<br>-----------------------<br>';
         for ($i = 0; $i <= count($tags); $i++) {
-            $con = "SELECT COUNT(id) as conta FROM tags WHERE nome = '" . $tags[$i] . "'";
-            $query = mysqli_query($link, $con);
-            $linha = mysqli_fetch_array($query);
-            if ($linha[conta] > 0) {
-                echo 'Tag \'' . $tags[$i] . '\' existente, retornando ' . $linha[conta] . ' resultado<br>';
-            } else {
-                $con = "INSERT INTO `tags` (`nome`) VALUES ('" . $tags[$i] . "');";
+            if (strlen($tags[$i]) > 0) {
+                $idTagExists = null;
+                $con = "SELECT COUNT(id) as conta,id FROM tags WHERE nome = '" . $tags[$i] . "' GROUP by id";
                 $query = mysqli_query($link, $con);
-                echo 'Tag \'' . $tags[$i] . '\' inserida.<br>';
-                echo'ID TAG: ' . mysqli_insert_id($link) . '<br><br>';
-                $lastTagId = mysqli_insert_id($link);
-
-                if ($query) {
-                    
-                }
-            }
-            $con = "SELECT count(id) as conta FROM `tag_post` where id_tag= '" . $lastTagId . "' and id_post= '" . $lastPostId . "'";
-            $query = mysqli_query($link, $con);
-            $linha = mysqli_fetch_array($query);
-            if ($linha[conta] > 0) {
-                echo 'Tag \'' . $tags[$i] . '\' já relacionada com o post ' . $linha[conta] . ' vez.<br>';
-            } else {
-
-                $con = "INSERT INTO `tag_post` (`id_tag`,`id_post`) VALUES ('" . $lastTagId . "','" . $lastPostId . "');";
-                $query = mysqli_query($link, $con);
-                if ($query) {
+                $linha = mysqli_fetch_array($query);
+                echo 'Existem ' . count($linha) . ' registros da tag \'' . $tags[$i] . '<br>';
+                if ($linha[conta] > 0) {
+                    $idTagExists = $linha[id];
+                    echo 'Tag \'' . $tags[$i] . '\' existente, retornando ' . count($linha) . ' resultado(s) com o(s) ID(s) ';
+                    print_r($linha);
+                        for ($i = 0; $i <= count($linha); $i++) {
+                            echo $linha[id].', ';
+                        }
+                    echo 'já inseridos.<br>';
+                } else {
+                    $con = "INSERT INTO `tags` (`nome`) VALUES ('" . $tags[$i] . "');";
+                    $query = mysqli_query($link, $con);
+                    echo 'Tag \'' . $tags[$i] . '\' inserida.<br>';
                     echo'ID TAG: ' . mysqli_insert_id($link) . '<br><br>';
+                    $idTagExists = mysqli_insert_id($link);
+
+                    if ($query) {
+                        
+                    }
                 }
+
+                $con = "SELECT count(id) as conta FROM tag_post where id_tag= '" . $idTagExists . "' and id_post= '" . $lastPostId . "'";
+                $query = mysqli_query($link, $con);
+                $linha = mysqli_fetch_array($query);
+                if ($linha[conta] > 0) {
+                    echo 'Tag \'' . $tags[$i] . '\' já relacionada com o post ' . $linha[conta] . ' vez.<br>';
+                } else {
+                    if ($idTagExists != null) {
+                        echo'<br>INSERINDO RELAÇÃO TAG/POST<br>';
+                        $con = "INSERT INTO `tag_post` (`id_tag`,`id_post`) VALUES ('" . $idTagExists . "','" . $lastPostId . "');";
+
+
+                        $query = mysqli_query($link, $con);
+                        if ($query) {
+                            echo'ID TAG: ' . mysqli_insert_id($link) . '<br><br>';
+                        }
+                    }
+                }
+                echo'<br>-----------------------<br>';
             }
         }
     }

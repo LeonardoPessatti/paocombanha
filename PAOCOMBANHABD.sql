@@ -12,12 +12,21 @@ CREATE TABLE autor (
   id int(11) NOT NULL,
   nome varchar(45) NOT NULL,
   descricao varchar(1000) DEFAULT NULL,
+  facebook varchar(50) DEFAULT NULL,
+  twitter varchar(50) DEFAULT NULL,
+  instagram varchar(50) DEFAULT NULL,
+  linkedin varchar(50) DEFAULT NULL,
+  site varchar(50) DEFAULT NULL,
+  email varchar(50) DEFAULT NULL,
+  whats varchar(50) DEFAULT NULL,
+  telegram varchar(50) DEFAULT NULL,
+  senha varchar(50) DEFAULT NULL,
   cor varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 ALTER TABLE autor
-  ADD PRIMARY KEY ('id'),
-  MODIFY 'id' int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  ADD PRIMARY KEY (id),
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT;
 
 
 
@@ -102,6 +111,10 @@ CREATE VIEW 'vw_post_autor'  AS
 select 'a'.'id' AS 'post_id','b'.'id' AS 'id','b'.'nome' AS 'nome','b'.'descricao' AS 'descricao','b'.'cor' AS 'cor'
 from ('vw_posts' 'a' join 'autor' 'b' on(('a'.'autor_id' = 'b'.'id'))) ;
 
+/*--VIEW AUTOR--*/
+CREATE VIEW vw_autor as
+SELECT id, nome, descricao, facebook, twitter, instagram, linkedin, site, email, whats, telegram, senha, cor
+FROM autor;
 
 
 /*
