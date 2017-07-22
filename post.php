@@ -53,12 +53,12 @@ mysqli_set_charset($link, "utf8");
                         <p><?php echo $linha[descricao_autor]; ?></p>
                     </div>
                     <div class="card-action">
-                        <a href="HTTPS://<?php echo $linhaAutor[facebook]; ?>">Facebook</a>
-                        <a href="<?php echo $linhaAutor[twitter]; ?>">Twitter</a>
-                        <a href="<?php echo $linhaAutor[instagram]; ?>">Instagram</a>
-                        <a href="<?php echo $linhaAutor[linkedin]; ?>">LinkedIn</a>
-                        <a href="<?php echo $linhaAutor[site]; ?>">Site</a>
-                        <a href="<?php echo $linhaAutor[telegram]; ?>">Telegram</a>
+                        <a href="HTTPS://<?php echo $linhaAutor[facebook]; ?>" target="blank">Facebook</a>
+                        <a href="<?php echo $linhaAutor[twitter]; ?>" target="blank">Twitter</a>
+                        <a href="<?php echo $linhaAutor[instagram]; ?>" target="blank">Instagram</a>
+                        <a href="<?php echo $linhaAutor[linkedin]; ?>" target="blank">LinkedIn</a>
+                        <a href="<?php echo $linhaAutor[site]; ?>" target="blank">Site</a>
+                        <a href="<?php echo $linhaAutor[telegram]; ?>" target="blank">Telegram</a>
 
                     </div>
                 </div>

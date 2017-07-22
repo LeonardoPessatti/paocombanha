@@ -66,12 +66,12 @@ $posts = mysqli_query($link, $conPosts);
     while ($linha = mysqli_fetch_array($posts)) {
         ?>
 
-            <div class="card large card-reveal card-panel" style="height: 37em; padding-bottom: 1.5em; max-height: auto;  background-color: rgb(539, 534, 513);    position: relative;">
+            <div class="card large card-reveal card-panel" style="height: 37em; padding-bottom: 1.5em;  background-color: rgb(539, 534, 513);">
                 <div class="card-image">
                     <img src=" <?php echo urldecode($linha[preview]); ?>" alt=\"\" />
                     <span class="card-title" style="text-shadow: 2px 2px 2px white;"><a href="index.php?post=<?php echo $linha[id] ?> "><h2><?php echo $linha[titulo]; ?></h2></a></span>
                 </div>
-                <div class="card-content icon-block"  style="margin-bottom: -30%;  max-height: none;  text-align: justify" >
+                <div class="card-content"  style="margin-bottom: -30%; text-align: justify" >
                     <h5 style="margin-top: 0"><?php echo $linha[descricao]; ?></h5>
                     <p><?php echo substr(urldecode($linha[conteudo]), 0, 800) .' ... <a href="index.php?post='.$linha[id].'">Continue Lendo</a>'; ?></p>
                     <p></p>
