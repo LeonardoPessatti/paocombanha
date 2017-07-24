@@ -66,21 +66,21 @@ $posts = mysqli_query($link, $conPosts);
     while ($linha = mysqli_fetch_array($posts)) {
         ?>
 
-            <div class="card large card-reveal card-panel" style="height: 37em; padding-bottom: 1.5em;  background-color: rgb(539, 534, 513);">
+            <div class="card medium card-reveal card-panel" style="height: 37em; padding-bottom: 1.5em;  background-color: rgb(539, 534, 513);">
                 <div class="card-image">
                     <img src=" <?php echo urldecode($linha[preview]); ?>" alt=\"\" />
                     <span class="card-title" style="text-shadow: 2px 2px 2px white;"><a href="index.php?post=<?php echo $linha[id] ?> "><h2><?php echo $linha[titulo]; ?></h2></a></span>
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                 </div>
                 <div class="card-content"  style="margin-bottom: -30%; text-align: justify" >
                     <h5 style="margin-top: 0"><?php echo $linha[descricao]; ?></h5>
-                    <p><?php echo substr(urldecode($linha[conteudo]), 0, 800) .' ... <a href="index.php?post='.$linha[id].'">Continue Lendo</a>'; ?></p>
-                    <p></p>
+                    <p><?php echo substr(urldecode($linha[conteudo]), 0, 800) .' ...'; ?></p>
                 </div>
                 <div class="card-action" style="padding: 0.5% 0 0.5% 0;">
                     <table>
                         <tr >
                             <td>
-                                <p style="padding: 0; margin: 0">Postado por <?php echo $linha[nome]; ?><br> ás <?php echo date( 'H:i:s',strtotime($linha[data])); ?> do dia <?php echo date( 'd-m-y',strtotime($linha[data])); ?></p>
+                                <p style="padding: 0; margin: 0">Postado por <a href="index.php?autor=<?php echo $linha[autor_id]; ?>"><?php echo $linha[nome]; ?></a><br> ás <?php echo date( 'H:i:s',strtotime($linha[data])); ?> do dia <?php echo date( 'd-m-y',strtotime($linha[data])); ?></p>
                             </td>
                             <td>
                                 <div id="social">
@@ -89,6 +89,7 @@ $posts = mysqli_query($link, $conPosts);
                                     <a href="https://twitter.com/LeoPessatti" target="parent"> <img src="img/insta.png"/> </a>
                                     <a href="https://twitter.com/LeoPessatti" target="parent"> <img src="img/linkedin.png"/> </a>
                                     <a href="https://plus.google.com/u/0/115983505734612118081/about" target="parent"> <img src="img/g+.png"/> </a>
+                                    <p style="padding: 0 ;margin: 0;text-align: right;"><a href="index.php?post=<?php echo $linha[id] ?> " style="padding: 0 ;margin: 0;">Continue Lendo</a></p>
                                 </div>
                             </td>
                         </tr> 

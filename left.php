@@ -11,5 +11,7 @@
             <p>Here is some more information about this product that is only revealed once clicked on.</p>
         </div>
     </div>
+<!--<div id="bitvalor-widget"></div>
+<script type="text/javascript" src="//bitvalor.com/js/widget.min.js"></script>-->
 <?php
 
