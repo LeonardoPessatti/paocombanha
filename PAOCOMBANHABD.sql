@@ -12,6 +12,7 @@ CREATE TABLE autor (
   id int(11) NOT NULL,
   nome varchar(45) NOT NULL,
   descricao varchar(1000) DEFAULT NULL,
+  cor varchar(45) DEFAULT NULL,
   facebook varchar(50) DEFAULT NULL,
   twitter varchar(50) DEFAULT NULL,
   instagram varchar(50) DEFAULT NULL,
@@ -20,8 +21,8 @@ CREATE TABLE autor (
   email varchar(50) DEFAULT NULL,
   whats varchar(50) DEFAULT NULL,
   telegram varchar(50) DEFAULT NULL,
+  login varchar(50) DEFAULT NULL,
   senha varchar(50) DEFAULT NULL,
-  cor varchar(45) DEFAULT NULL
   avatar varchar(50) DEFAULT NULL
 );
 
@@ -46,6 +47,7 @@ CREATE TABLE posts (
   id int(11) NOT NULL,
   autor_id int(11) NOT NULL,
   titulo varchar(45) NOT NULL,
+  url varchar(90 NOT NULL,
   preview varchar(200),
   descricao varchar(45) DEFAULT NULL,
   conteudo longtext NOT NULL,
@@ -92,25 +94,25 @@ ALTER TABLE imagens
 /*--VIEW POSTS--*/
 CREATE VIEW vw_posts AS 
 select a.id, a.titulo, a.preview, a.descricao, a.conteudo, a.data, a.ativo, b.id as autor_id, b.nome, b.descricao as descricao_autor, b.cor
-from posts a JOIN autor b ON A.autor_id = B.id
+from posts a JOIN autor b ON a.autor_id = b.id
 order by a.id desc
 
 /*--VIEW POSTS ATIVOS--*/
-CREATE VIEW 'vw_count_posts_ativos'  AS  
-select count('vw_posts'.'id') AS 'NUMPOSTS' 
-from 'vw_posts' 
-where ('vw_posts'.'ativo' = TRUE) ;
+CREATE VIEW vw_count_posts_ativos  AS  
+select count(vw_posts.id) AS NUMPOSTS 
+from vw_posts 
+where (vw_posts.ativo = TRUE) ;
 
 /*--VIEW TAGS--*/
-CREATE VIEW 'vw_tags'  AS  
-select 'a'.'id_post' AS 'id_post','a'.'id_tag' AS 'id_tag','b'.'nome' AS 'nome' 
-from ('tag_post' 'a' join 'tags' 'b' on(('a'.'id_tag' = 'b'.'id'))) 
-order by 'a'.'id_post' desc ;
+CREATE VIEW vw_tags  AS  
+select a.id_post AS id_post,a.id_tag AS id_tag,b.nome AS nome 
+from (tag_post a join tags b on((a.id_tag = b.id))) 
+order by a.id_post desc ;
 
 /*--VIEW POSTS AUTOR--*/
-CREATE VIEW 'vw_post_autor'  AS  
-select 'a'.'id' AS 'post_id','b'.'id' AS 'id','b'.'nome' AS 'nome','b'.'descricao' AS 'descricao','b'.'cor' AS 'cor'
-from ('vw_posts' 'a' join 'autor' 'b' on(('a'.'autor_id' = 'b'.'id'))) ;
+CREATE VIEW vw_post_autor  AS  
+select a.id AS post_id, b.id AS id, b.nome AS nome, b.descricao AS descricao, b.cor AS cor
+from (vw_posts a join autor b on((a.autor_id = b.id))) ;
 
 /*--VIEW AUTOR--*/
 CREATE VIEW vw_autor as

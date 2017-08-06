@@ -45,6 +45,9 @@ include 'server.php';
             <div class="col s0 m3 l3  ">
                 <?php include 'left.php'; ?>
             </div>
+            
+            
+            
             <?php
             if ($post) {
                 include 'post.php';
@@ -56,6 +59,8 @@ include 'server.php';
                     include 'paginacao.php';
                     ?>
                 </div>
+            
+            
             <?php } ?>
             <div class="col s0 m2 l2  ">
                 <?php include 'right.php'; ?>
