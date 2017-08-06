@@ -7,6 +7,7 @@ Created on : 29/03/2017, 20:48:08
 Author     : Leonardo Pessatti <lpessatti@gmail.com>
 -->
 <?php
+include_once("analyticstracking.php");
 include 'lib.php';
 include 'server.php';
 ?>
