@@ -15,7 +15,7 @@ mysqli_set_charset($link, "utf8");
 // Inacabado
 ?>
 
-<div class="col s10 m8 l6 ">
+<div class="col s12 m8 l6 ">
     <article>
         <header>
             <h1><a href="#"><?php echo $linha[titulo]; ?></a></h1>
@@ -45,12 +45,21 @@ mysqli_set_charset($link, "utf8");
             $linhaAutor = mysqli_fetch_array($queryAutor);
             ?>
 
-            <div class="row">
-
+            <div class="row autor">
                 <div class="card blue-grey darken-1">
                     <div class="card-content white-text" style="background-color: <?php echo $linhaAutor[cor]; ?>">
-                        <span class="card-title"><a href="index.php?autor=<?php echo $linhaAutor[autor_id]; ?>"><?php echo $linhaAutor[nome]; ?></a></span>
-                        <p><?php echo $linha[descricao_autor]; ?></p>
+                        <header>
+                            <div class="row">
+                                <div class="col">
+                                    <img style="border-radius: 100%; height: 10em; width: 10em;" src="img/profiles/autor1.jpg" alt="" />
+                                </div>
+                                <div style="width: 70%; word-wrap: break-word;" class="col">
+                                    <span class="card-title"><a href="index.php?autor=<?php echo $linhaAutor[autor_id]; ?>"><?php echo $linhaAutor[nome]; ?></a></span>
+                                    <p><?php echo $linha[descricao_autor]; ?></p>
+                                </div>
+                            </div>
+                        </header>
+
                     </div>
                     <div class="card-action">
                         <a href="HTTPS://<?php echo $linhaAutor[facebook]; ?>" target="blank">Facebook</a>

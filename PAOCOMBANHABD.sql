@@ -22,6 +22,7 @@ CREATE TABLE autor (
   telegram varchar(50) DEFAULT NULL,
   senha varchar(50) DEFAULT NULL,
   cor varchar(45) DEFAULT NULL
+  avatar varchar(50) DEFAULT NULL
 );
 
 ALTER TABLE autor
@@ -113,7 +114,7 @@ from ('vw_posts' 'a' join 'autor' 'b' on(('a'.'autor_id' = 'b'.'id'))) ;
 
 /*--VIEW AUTOR--*/
 CREATE VIEW vw_autor as
-SELECT id, nome, descricao, facebook, twitter, instagram, linkedin, site, email, whats, telegram, senha, cor
+SELECT id, nome, descricao, avatar, facebook, twitter, instagram, linkedin, site, email, whats, telegram, senha, cor
 FROM autor;
 
 
